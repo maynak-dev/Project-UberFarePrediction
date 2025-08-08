@@ -29,14 +29,23 @@ It uses **ML.NET** in **.NET 9** with a pre-trained regression model.
 ## 📂 Project Structure
 UberFarePrediction.sln
 │
+
 ├── MLModel1_ConsoleApp1/ # Auto-generated ML.NET model project
+
 │ ├── MLModel1.cs # Model input/output classes & Predict() method
+
 │ ├── Program.cs # Sample usage (auto-generated)
+
 │ └── UberFareModel.zip # Saved trained model
+
 │
+
 ├── UberFarePrediction/ # Main interactive console app
+
 │ ├── Program.cs # Takes user input & predicts fare
+
 │
+
 └── README.md # Project documentation
 
 **##yaml**
