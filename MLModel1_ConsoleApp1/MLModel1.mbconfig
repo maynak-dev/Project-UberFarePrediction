@@ -1,0 +1,414 @@
+﻿{
+  "Scenario": "Regression",
+  "DataSource": {
+    "Version": 3,
+    "EscapeCharacter": "\"",
+    "ReadMultiLines": false,
+    "KeepDiacritics": false,
+    "KeepPunctuations": false,
+    "AllowQuoting": false,
+    "Type": "TabularFile",
+    "FilePath": "C:\\Users\\Maynak Dey\\Downloads\\uber.csv",
+    "Delimiter": ",",
+    "DecimalMarker": ".",
+    "HasHeader": true,
+    "ColumnProperties": [
+      {
+        "ColumnName": "column1",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "key",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "fare_amount",
+        "ColumnPurpose": "Label",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "pickup_datetime",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "pickup_longitude",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "pickup_latitude",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "dropoff_longitude",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "dropoff_latitude",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "passenger_count",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      }
+    ]
+  },
+  "Environment": {
+    "Type": "LocalCPU",
+    "Version": 1
+  },
+  "RunHistory": {
+    "Version": 3,
+    "Type": "Result",
+    "Trials": [
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "LightGbmRegression",
+        "Score": 0.70580960593302422,
+        "RuntimeInSeconds": 38.078,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e6",
+          "e0": {
+            "OutputColumnNames": [
+              "column1",
+              "pickup_longitude",
+              "pickup_latitude",
+              "dropoff_longitude",
+              "dropoff_latitude",
+              "passenger_count"
+            ],
+            "InputColumnNames": [
+              "column1",
+              "pickup_longitude",
+              "pickup_latitude",
+              "dropoff_longitude",
+              "dropoff_latitude",
+              "passenger_count"
+            ]
+          },
+          "e1": {
+            "InputColumnName": "key",
+            "OutputColumnName": "key"
+          },
+          "e2": {
+            "InputColumnName": "pickup_datetime",
+            "OutputColumnName": "pickup_datetime"
+          },
+          "e3": {
+            "InputColumnNames": [
+              "column1",
+              "pickup_longitude",
+              "pickup_latitude",
+              "dropoff_longitude",
+              "dropoff_latitude",
+              "passenger_count",
+              "key",
+              "pickup_datetime"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e6": {
+            "NumberOfLeaves": 1087,
+            "MinimumExampleCountPerLeaf": 20,
+            "LearningRate": 0.94997736905102981,
+            "NumberOfTrees": 4,
+            "SubsampleFraction": 0.99999977667298645,
+            "MaximumBinCountPerFeature": 245,
+            "FeatureFraction": 0.95842248491614845,
+            "L1Regularization": 4.6521289928934994E-10,
+            "L2Regularization": 0.42482829618851631,
+            "LabelColumnName": "fare_amount",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastForestRegression",
+        "Score": 0.61597184979032926,
+        "RuntimeInSeconds": 14.768,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e5",
+          "e0": {
+            "OutputColumnNames": [
+              "column1",
+              "pickup_longitude",
+              "pickup_latitude",
+              "dropoff_longitude",
+              "dropoff_latitude",
+              "passenger_count"
+            ],
+            "InputColumnNames": [
+              "column1",
+              "pickup_longitude",
+              "pickup_latitude",
+              "dropoff_longitude",
+              "dropoff_latitude",
+              "passenger_count"
+            ]
+          },
+          "e1": {
+            "InputColumnName": "key",
+            "OutputColumnName": "key"
+          },
+          "e2": {
+            "InputColumnName": "pickup_datetime",
+            "OutputColumnName": "pickup_datetime"
+          },
+          "e3": {
+            "InputColumnNames": [
+              "column1",
+              "pickup_longitude",
+              "pickup_latitude",
+              "dropoff_longitude",
+              "dropoff_latitude",
+              "passenger_count",
+              "key",
+              "pickup_datetime"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e5": {
+            "NumberOfTrees": 10,
+            "NumberOfLeaves": 6,
+            "FeatureFraction": 0.89509046,
+            "LabelColumnName": "fare_amount",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastForestRegression",
+        "Score": 0.61214313734979586,
+        "RuntimeInSeconds": 11.764,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e5",
+          "e0": {
+            "OutputColumnNames": [
+              "column1",
+              "pickup_longitude",
+              "pickup_latitude",
+              "dropoff_longitude",
+              "dropoff_latitude",
+              "passenger_count"
+            ],
+            "InputColumnNames": [
+              "column1",
+              "pickup_longitude",
+              "pickup_latitude",
+              "dropoff_longitude",
+              "dropoff_latitude",
+              "passenger_count"
+            ]
+          },
+          "e1": {
+            "InputColumnName": "key",
+            "OutputColumnName": "key"
+          },
+          "e2": {
+            "InputColumnName": "pickup_datetime",
+            "OutputColumnName": "pickup_datetime"
+          },
+          "e3": {
+            "InputColumnNames": [
+              "column1",
+              "pickup_longitude",
+              "pickup_latitude",
+              "dropoff_longitude",
+              "dropoff_latitude",
+              "passenger_count",
+              "key",
+              "pickup_datetime"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e5": {
+            "NumberOfTrees": 4,
+            "NumberOfLeaves": 4,
+            "FeatureFraction": 0.9819605,
+            "LabelColumnName": "fare_amount",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastForestRegression",
+        "Score": 0.59580236883706672,
+        "RuntimeInSeconds": 26.292,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e5",
+          "e0": {
+            "OutputColumnNames": [
+              "column1",
+              "pickup_longitude",
+              "pickup_latitude",
+              "dropoff_longitude",
+              "dropoff_latitude",
+              "passenger_count"
+            ],
+            "InputColumnNames": [
+              "column1",
+              "pickup_longitude",
+              "pickup_latitude",
+              "dropoff_longitude",
+              "dropoff_latitude",
+              "passenger_count"
+            ]
+          },
+          "e1": {
+            "InputColumnName": "key",
+            "OutputColumnName": "key"
+          },
+          "e2": {
+            "InputColumnName": "pickup_datetime",
+            "OutputColumnName": "pickup_datetime"
+          },
+          "e3": {
+            "InputColumnNames": [
+              "column1",
+              "pickup_longitude",
+              "pickup_latitude",
+              "dropoff_longitude",
+              "dropoff_latitude",
+              "passenger_count",
+              "key",
+              "pickup_datetime"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e5": {
+            "NumberOfTrees": 4,
+            "NumberOfLeaves": 4,
+            "FeatureFraction": 1.0,
+            "LabelColumnName": "fare_amount",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastForestRegression",
+        "Score": 0.59580236883706672,
+        "RuntimeInSeconds": 11.509,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e5",
+          "e0": {
+            "OutputColumnNames": [
+              "column1",
+              "pickup_longitude",
+              "pickup_latitude",
+              "dropoff_longitude",
+              "dropoff_latitude",
+              "passenger_count"
+            ],
+            "InputColumnNames": [
+              "column1",
+              "pickup_longitude",
+              "pickup_latitude",
+              "dropoff_longitude",
+              "dropoff_latitude",
+              "passenger_count"
+            ]
+          },
+          "e1": {
+            "InputColumnName": "key",
+            "OutputColumnName": "key"
+          },
+          "e2": {
+            "InputColumnName": "pickup_datetime",
+            "OutputColumnName": "pickup_datetime"
+          },
+          "e3": {
+            "InputColumnNames": [
+              "column1",
+              "pickup_longitude",
+              "pickup_latitude",
+              "dropoff_longitude",
+              "dropoff_latitude",
+              "passenger_count",
+              "key",
+              "pickup_datetime"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e5": {
+            "NumberOfTrees": 4,
+            "NumberOfLeaves": 4,
+            "FeatureFraction": 1.0,
+            "LabelColumnName": "fare_amount",
+            "FeatureColumnName": "Features"
+          }
+        }
+      }
+    ],
+    "Estimators": {
+      "e0": "ReplaceMissingValues",
+      "e1": "FeaturizeText",
+      "e2": "FeaturizeText",
+      "e3": "Concatenate",
+      "e4": "FastTreeRegression",
+      "e5": "FastForestRegression",
+      "e6": "LightGbmRegression",
+      "e7": "LbfgsPoissonRegressionRegression",
+      "e8": "SdcaRegression"
+    },
+    "Schema": "e0 * e1 * e2 * e3 * (e4 + e5 + e6 + e7 + e8)",
+    "MetricName": "RSquared",
+    "ModelFilePath": "C:\\Users\\Maynak Dey\\source\\repos\\UberFarePrediction\\UberFarePrediction\\MLModel1.mlnet"
+  },
+  "Type": "TrainingConfig",
+  "Version": 5,
+  "TrainingOption": {
+    "Version": 2,
+    "Subsampling": false,
+    "Type": "RegressionTrainingOption",
+    "TrainingTime": 600,
+    "LabelColumn": "fare_amount",
+    "ValidationOption": {
+      "Version": 0,
+      "Type": "TrainValidateSplitValidationOption",
+      "SplitRatio": 0.2
+    }
+  }
+}
